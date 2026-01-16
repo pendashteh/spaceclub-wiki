@@ -1,12 +1,12 @@
 {
-  "name": "@jackyzha0/quartz",
-  "description": "🌱 publish your digital garden and notes as a website",
+  "name": "spaceclub-wiki",
+  "description": "cyber space",
   "private": true,
   "version": "4.5.2",
   "type": "module",
-  "author": "jackyzha0 <j.zhao2k19@gmail.com>",
+  "author": "talkingsites <spaceclub@talkingsites.org>",
   "license": "MIT",
-  "homepage": "https://quartz.jzhao.xyz",
+  "homepage": "https://spaceclubwiki.talkingsites.org",
   "repository": {
     "type": "git",
     "url": "https://github.com/jackyzha0/quartz.git"
