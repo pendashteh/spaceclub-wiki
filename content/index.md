@@ -2,7 +2,7 @@
 title: SpaceClub! Wiki
 ---
 
-Welcome, cyber-space explorer! 🚀
+Welcome, cyber-space explorer!
 
 SpaceClub! is a website template that you fully own, can easily edit, and can host anywhere - for free. It's built for people who want a real website without the vendor lock-in.
 
@@ -10,10 +10,21 @@ Whether you're a developer who wants a clean starting point, or someone who's ne
 
 ## Get Started
 
-Choose your path:
+### Quick Commands
 
-- **[[Quick Start]]** - You know Git and npm. Clone, install, run. 30 seconds.
-- **[[Walkthrough]]** - Brand new to all of this? Start here. We'll walk through everything from scratch.
+```bash
+git clone https://github.com/TalkingSites/spaceclub-wiki.git
+cd spaceclub-wiki
+npm install
+npm start
+```
+
+Your site will be running at `localhost:8080`
+
+From here, check out the **[[Quick Start]]** guide and **[[Customisation]]** to make it your own.
+
+#### Walkthrough
+If you're not familiar with Git, Node, or static sites, start with the **[[Walkthrough]]** instead.
 
 ## Learn the Template
 

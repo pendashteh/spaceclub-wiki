@@ -13,17 +13,16 @@ export default ((opts?: Options) => {
     const links = opts?.links ?? []
     return (
       <footer class={`${displayClass ?? ""}`}>
-        <p>
-          {i18n(cfg.locale).components.footer.createdWith}{" "}
-          <a href="https://quartz.jzhao.xyz/">Quartz v{version}</a> · Wiki v1.4.0 © {year}
-        </p>
+        <p>SpaceClub! Wiki v1.4.0 © {year}</p>
         <ul>
-          {Object.entries(links).map(([text, link]) => (
-            <li>
-              <a href={link}>{text}</a>
-            </li>
-          ))}
+          <li>
+            <a href="https://github.com/talkingSites/spaceclub-wiki">Wiki Github</a> · <a href="https://github.com/ArcadeFortune/spaceclub-template">Template Github</a>
+          </li>
         </ul>
+        <small>
+          {i18n(cfg.locale).components.footer.createdWith}{" "}
+          <a href="https://quartz.jzhao.xyz/">Quartz v{version}</a>
+        </small>
       </footer>
     )
   }
