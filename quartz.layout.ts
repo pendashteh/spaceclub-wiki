@@ -8,8 +8,9 @@ export const sharedPageComponents: SharedLayout = {
   afterBody: [],
   footer: Component.Footer({
     links: {
-      "Wiki GitHub": "https://github.com/talkingSites/spaceclub-wiki",
-      "Template GitHub": "https://github.com/ArcadeFortune/spaceclub-template",
+      "Wiki on GitHub": "https://github.com/TalkingSites/spaceclub-wiki",
+      "Template Preview": "https://spaceclub.talkingsites.org",
+      "Template on GitHub": "https://github.com/TalkingSites/spaceclub-template",
     },
   }),
 }
