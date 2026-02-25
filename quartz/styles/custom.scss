@@ -1,3 +1,201 @@
 @use "./base.scss";
+@use "sass:map";
+@use "./variables.scss" as *;
 
-// put your custom CSS here!
+// ─────────────────────────────────────────────────────────────────────────────
+// SpaceClub Theme for Quartz
+// Primary:   #d4204d  (crimson)
+// Secondary: #8200d8  (purple)
+// Gradient:  teal → purple → rose → red
+// ─────────────────────────────────────────────────────────────────────────────
+
+:root {
+  --sc-gradient: linear-gradient(135deg, #3bc7f6 0%, #a855f7 29.8%, #cc4d9e 69.3%, #ef4444 100%);
+  // Light mode footer — same bg as the page, dark muted text
+  --sc-footer-bg:         var(--light);
+  --sc-footer-text-muted: rgba(20, 5, 35, 0.35);
+  --sc-footer-border:     var(--lightgray);
+  --sc-footer-link:       rgba(20, 5, 35, 0.50);
+  --sc-footer-link-hover: #d4204d;
+}
+
+:root[saved-theme="dark"] {
+  // Dark mode footer — deep dark, light text
+  --sc-footer-bg:         #09090e;
+  --sc-footer-text-muted: rgba(255, 255, 255, 0.30);
+  --sc-footer-border:     rgba(255, 255, 255, 0.06);
+  --sc-footer-link:       rgba(255, 255, 255, 0.50);
+  --sc-footer-link-hover: #f04d73;
+}
+
+// ── Grid override: full-width footer ────────────────────────────────────────
+// Desktop — footer takes all 3 columns
+.page > #quartz-body {
+  @media all and ($desktop) {
+    grid-template-areas:
+      "grid-sidebar-left grid-header grid-sidebar-right"
+      "grid-sidebar-left grid-center grid-sidebar-right"
+      "grid-footer       grid-footer grid-footer";
+  }
+
+  // Tablet — footer takes both columns
+  @media all and ($tablet) {
+    grid-template-areas:
+      "grid-sidebar-left grid-header"
+      "grid-sidebar-left grid-center"
+      "grid-sidebar-left grid-sidebar-right"
+      "grid-footer       grid-footer";
+  }
+}
+
+// Ensure .footer-wrapper fills the full grid cell
+#quartz-body > .footer-wrapper {
+  max-width: 100%;
+  min-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+// ── Navigation progress bar ──────────────────────────────────────────────────
+.navigation-progress {
+  background: var(--sc-gradient) !important;
+  height: 3px;
+}
+
+// ── Page title — gradient brand text ────────────────────────────────────────
+.page-title {
+  h2 > a {
+    background: var(--sc-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+
+    &:hover {
+      opacity: 0.8;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+}
+
+// ── Sidebar accent border (desktop only) ────────────────────────────────────
+@media all and ($desktop) {
+  .sidebar.left {
+    border-right: 1px solid var(--lightgray);
+    padding-right: 1.5rem;
+  }
+}
+
+// ── Article heading — purple ──────────────────────────────────────────────────
+.article-title {
+  color: var(--tertiary);
+  font-weight: 700;
+}
+
+// ── Inline code ─────────────────────────────────────────────────────────────
+code:not(pre > code) {
+  background: color-mix(in srgb, var(--secondary) 10%, var(--lightgray));
+  color: var(--secondary);
+  border-radius: 4px;
+}
+
+// ── Internal links ──────────────────────────────────────────────────────────
+a.internal {
+  background-color: color-mix(in srgb, var(--secondary) 8%, transparent);
+  padding: 0 0.15rem;
+  border-radius: 3px;
+
+  &.tag-link {
+    border-radius: 999px;
+    padding: 0.1rem 0.55rem;
+    font-size: 0.85em;
+    border: 1px solid color-mix(in srgb, var(--secondary) 30%, var(--lightgray));
+  }
+}
+
+// ── Blockquotes ─────────────────────────────────────────────────────────────
+blockquote {
+  border-left: 3px solid var(--secondary);
+  background: color-mix(in srgb, var(--secondary) 5%, transparent);
+  border-radius: 0 6px 6px 0;
+  padding: 0.75rem 1rem;
+  margin: 1rem 0;
+}
+
+// ── HR — gradient divider ────────────────────────────────────────────────────
+hr {
+  background: linear-gradient(to right, transparent, var(--secondary), var(--tertiary), transparent);
+  height: 2px;
+  opacity: 0.4;
+  border: none;
+}
+
+// ── Search button ───────────────────────────────────────────────────────────
+.search > .search-button {
+  border-radius: 8px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    border-color: color-mix(in srgb, var(--secondary) 60%, var(--lightgray));
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--secondary) 12%, transparent);
+  }
+}
+
+// ── Scrollbar accent ────────────────────────────────────────────────────────
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--secondary) 25%, var(--lightgray));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+// ── Content area — breathing room from both sidebars ───────────────────────
+@media all and ($desktop) {
+  .center {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    box-sizing: border-box;
+  }
+}
+
+// ── Graph canvas container ──────────────────────────────────────────────────
+.graph > #graph-container {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+// ── Explorer — hover = purple, active page = pink ───────────────────────────
+.explorer .folder-arrow {
+  color: var(--secondary);
+}
+
+.explorer-content ul li > a {
+  transition: color 0.15s ease, opacity 0.15s ease;
+
+  &:hover {
+    color: var(--tertiary) !important;
+    opacity: 1 !important;
+  }
+
+  &.active {
+    color: var(--secondary) !important;
+    opacity: 1 !important;
+  }
+}
+
+// ── Table of Contents — hover = purple ───────────────────────────────────
+ul.toc-content a {
+  transition: color 0.15s ease, opacity 0.15s ease;
+
+  &:hover {
+    color: var(--tertiary) !important;
+    opacity: 1 !important;
+  }
+}
