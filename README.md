@@ -1,18 +1,20 @@
-# Quartz v4
+# SpaceClub! Wiki
+**Version:** 1.4.0
 
-> “[One] who works with the door open gets all kinds of interruptions, but [they] also occasionally gets clues as to what the world is and what might be important.” — Richard Hamming
+The official documentation and wiki for the SpaceClub! website template — covering setup, customisation, components, and deployment.
 
-Quartz is a set of tools that helps you publish your [digital garden](https://jzhao.xyz/posts/networked-thought) and notes as a website for free.
-Quartz v4 features a from-the-ground rewrite focusing on end-user extensibility and ease-of-use.
+Built with [Quartz v4](https://quartz.jzhao.xyz/), a static site generator for publishing Markdown notes and documentation as a fast, searchable website.
 
-🔗 Read the documentation and get started: https://quartz.jzhao.xyz/
+**Live site:**
+[https://spaceclubwiki.talkingsites.org](https://spaceclubwiki.talkingsites.org)
 
-[Join the Discord Community](https://discord.gg/cRFFHYye7t)
+**SpaceClub! Template:**
+[https://github.com/talkingsites/spaceclub-template](https://github.com/talkingsites/spaceclub-template)
 
-## Sponsors
+## Development
 
-<p align="center">
-  <a href="https://github.com/sponsors/jackyzha0">
-    <img src="https://cdn.jsdelivr.net/gh/jackyzha0/jackyzha0/sponsorkit/sponsors.svg" />
-  </a>
-</p>
+```bash
+npx quartz build --serve
+```
+
+Content lives in the `content/` folder as Markdown files. Theme and layout customisation is in `quartz/styles/custom.scss` and `quartz/components/`.
