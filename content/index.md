@@ -13,8 +13,8 @@ Whether you're a developer who wants a clean starting point, or someone who's ne
 ### Quick Commands
 
 ```bash
-git clone https://github.com/TalkingSites/spaceclub-wiki.git
-cd spaceclub-wiki
+git clone https://github.com/TalkingSites/spaceclub-template.git
+cd spaceclub-template
 npm install
 npm start
 ```
